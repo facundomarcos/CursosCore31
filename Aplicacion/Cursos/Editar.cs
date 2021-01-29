@@ -21,6 +21,8 @@ namespace Aplicacion.Cursos
             // ? -> permite null
             public DateTime? FechaPublicacion {get; set;}
             public List<Guid> ListaInstructor {get; set;}
+            public decimal? Precio {get;set;}
+            public decimal? Promocion {get;set;}
         }
         public class EjecutaValidacion : AbstractValidator<Ejecuta>{
             public EjecutaValidacion(){
@@ -48,6 +50,23 @@ namespace Aplicacion.Cursos
                 curso.Titulo = request.Titulo ?? curso.Titulo;
                 curso.Descripcion = request.Descripcion ?? curso.Descripcion;
                 curso.FechaPublicacion = request.FechaPublicacion ?? curso.FechaPublicacion;
+
+                //logica para actualizar el precio del curso
+                var precioEntidad = _context.Precio.Where(x => x.CursoId == curso.CursoId).FirstOrDefault();
+                if(precioEntidad!=null){
+                    //en caso que sea nulo o vacio
+                    precioEntidad.Promocion = request.Promocion ?? precioEntidad.Promocion;
+                    precioEntidad.PrecioActual = request.Precio ?? precioEntidad.PrecioActual;
+                    //si el precio es null, hay que insertarlo
+                }else{
+                    precioEntidad = new Precio{
+                        PrecioId = Guid.NewGuid(),
+                        PrecioActual = request.Precio ?? 0,
+                        Promocion = request.Promocion ?? 0,
+                        CursoId = curso.CursoId
+                    };
+                    await _context.Precio.AddAsync(precioEntidad);
+                }
 
                 //para actualizar los instructores
                 //cuando la lista no sea nula y no este vacia

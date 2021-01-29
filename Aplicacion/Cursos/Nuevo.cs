@@ -21,6 +21,9 @@ namespace Aplicacion.Cursos
             public DateTime? FechaPublicacion {get; set;}
             //para traer los guid de los instructores
             public List<Guid> ListaInstructor {get;set;}
+            public decimal Precio {get;set;}
+            public decimal Promocion {get;set;}
+
         }
         public class EjecutaValidacion : AbstractValidator<Ejecuta>{
             public EjecutaValidacion(){
@@ -62,6 +65,16 @@ namespace Aplicacion.Cursos
                         _context.CursoInstructor.Add(cursoInstructor);
                     }
                 }
+                //agregar el precio
+                var precioEntidad = new Precio{
+                    CursoId = _cursoId,
+                    PrecioActual = request.Precio,
+                    Promocion = request.Promocion,
+                    PrecioId = Guid.NewGuid()
+
+                };
+                _context.Precio.Add(precioEntidad);
+                
                 //devuelve un entero con la cantidad de operaciones
                 var valor = await _context.SaveChangesAsync();
                 if(valor>0){
