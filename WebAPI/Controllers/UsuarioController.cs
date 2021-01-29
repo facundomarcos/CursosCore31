@@ -1,10 +1,13 @@
 using System.Threading.Tasks;
 using Aplicacion.Seguridad;
 using Dominio;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
+    //para que no requiera authorizacion y poder loguearse
+    [AllowAnonymous]
     public class UsuarioController : MiControllerBase
     {
         //http://localhost:5000/api/Usuario/login

@@ -16,7 +16,7 @@ namespace WebAPI.Controllers
         
         // http://localhost:5000/api/Cursos
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult<List<Curso>>> Get(){
             return await Mediator.Send(new Consulta.ListaCursos());
         }

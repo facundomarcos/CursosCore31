@@ -26,6 +26,8 @@ using Seguridad;
 using WebAPI.Middleware;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace WebAPI
 {
@@ -46,7 +48,15 @@ namespace WebAPI
             });
             services.AddMediatR(typeof(Consulta.Manejador).Assembly);
 
-            services.AddControllers().AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<Nuevo>());
+            services.AddControllers(opt => {
+                //para la autorizacion de todos los metodos y no usar decorador [Authorize] 
+                //que tengan la autorizacion antes de procesar el request del cliente
+                //todos los controller van a tener esa seguridad
+                //menos el de login
+                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+                opt.Filters.Add(new AuthorizeFilter(policy));
+            })
+            .AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<Nuevo>());
             //agregamos como servicio el coreidentity
             //instancia de la clase usuario
            var builder = services.AddIdentityCore<Usuario>();
