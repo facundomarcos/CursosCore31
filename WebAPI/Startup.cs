@@ -81,6 +81,8 @@ namespace WebAPI
 
             //para los tokens de seguridad 
            services.AddScoped<IJwtGenerador, JwtGenerador>();
+           //agregamos el servicio para obtener la sesion del usuario
+           services.AddScoped<IUsuarioSesion, UsuarioSesion>();
 
             services.AddControllers();
         }
