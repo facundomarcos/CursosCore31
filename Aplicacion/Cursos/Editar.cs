@@ -1,8 +1,11 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Aplicacion.ManejadorError;
+using Dominio;
 using FluentValidation;
 using MediatR;
 using Persistencia;
@@ -12,11 +15,12 @@ namespace Aplicacion.Cursos
     public class Editar
     {
         public class Ejecuta : IRequest{
-            public int CursoId {get; set;}
+            public Guid CursoId {get; set;}
             public string Titulo {get; set;}
             public string Descripcion {get; set;}
             // ? -> permite null
             public DateTime? FechaPublicacion {get; set;}
+            public List<Guid> ListaInstructor {get; set;}
         }
         public class EjecutaValidacion : AbstractValidator<Ejecuta>{
             public EjecutaValidacion(){
@@ -44,6 +48,28 @@ namespace Aplicacion.Cursos
                 curso.Titulo = request.Titulo ?? curso.Titulo;
                 curso.Descripcion = request.Descripcion ?? curso.Descripcion;
                 curso.FechaPublicacion = request.FechaPublicacion ?? curso.FechaPublicacion;
+
+                //para actualizar los instructores
+                //cuando la lista no sea nula y no este vacia
+                if(request.ListaInstructor!=null){
+                    if(request.ListaInstructor.Count>0){
+                        //eliminar los instructores actuales
+                        var instructoresBD = _context.CursoInstructor.Where(x => x.CursoId == request.CursoId).ToList();
+                        foreach(var instructorEliminar in instructoresBD){
+                            _context.CursoInstructor.Remove(instructorEliminar);
+                        }
+                        //fin eliminar
+                        //adjuntar los instructores que envia el cliente en el request
+                        foreach(var ids in request.ListaInstructor){
+                            var nuevoInstructor = new CursoInstructor{
+                                CursoId = request.CursoId,
+                                InstructorId = ids
+                            };
+                            _context.CursoInstructor.Add(nuevoInstructor);
+                        }
+                        //fin adjuntar
+                    }
+                }
 
                 //devuelve la cantidad de filas que se modificaron
                 var resultado = await _context.SaveChangesAsync();
