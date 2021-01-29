@@ -28,6 +28,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using AutoMapper;
 
 namespace WebAPI
 {
@@ -83,6 +84,8 @@ namespace WebAPI
            services.AddScoped<IJwtGenerador, JwtGenerador>();
            //agregamos el servicio para obtener la sesion del usuario
            services.AddScoped<IUsuarioSesion, UsuarioSesion>();
+           //agregamos el servicio de automapper para convertir los dto
+           services.AddAutoMapper(typeof(Consulta.Manejador));
 
             services.AddControllers();
         }
