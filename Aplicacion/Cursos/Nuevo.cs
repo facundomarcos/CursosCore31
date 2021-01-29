@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,6 +19,8 @@ namespace Aplicacion.Cursos
             public string Titulo {get; set;}
             public string Descripcion {get; set;}
             public DateTime? FechaPublicacion {get; set;}
+            //para traer los guid de los instructores
+            public List<Guid> ListaInstructor {get;set;}
         }
         public class EjecutaValidacion : AbstractValidator<Ejecuta>{
             public EjecutaValidacion(){
@@ -28,6 +31,7 @@ namespace Aplicacion.Cursos
             }       
          }
 
+        //esta es la clase que ingresa los cursos en la base de datos
         public class Manejador : IRequestHandler<Ejecuta>
         {
             private readonly CursosOnlineContext _context;
@@ -36,13 +40,29 @@ namespace Aplicacion.Cursos
             }
             public async Task<Unit> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
+                //valor aleatorio para el guid del curso
+               Guid _cursoId = Guid.NewGuid();
                 var curso = new Curso {
+                    CursoId = _cursoId,
                     Titulo = request.Titulo,
                     Descripcion = request.Descripcion,
                     FechaPublicacion = request.FechaPublicacion
                 };
 
                 _context.Curso.Add(curso);
+
+                //llamar a la lista de instructores
+                if(request.ListaInstructor!=null){
+                   
+                    foreach(var id in request.ListaInstructor){
+                       var cursoInstructor = new CursoInstructor{
+                            CursoId = _cursoId,
+                            InstructorId = id
+                        };
+                        _context.CursoInstructor.Add(cursoInstructor);
+                    }
+                }
+                //devuelve un entero con la cantidad de operaciones
                 var valor = await _context.SaveChangesAsync();
                 if(valor>0){
                     return Unit.Value;
