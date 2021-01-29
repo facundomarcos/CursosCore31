@@ -1,0 +1,16 @@
+C:\CursosCoreVs31\CursosCoreVs31\Seguridad\bin\Debug\netcoreapp3.1\Seguridad.deps.json
+C:\CursosCoreVs31\CursosCoreVs31\Seguridad\bin\Debug\netcoreapp3.1\Seguridad.dll
+C:\CursosCoreVs31\CursosCoreVs31\Seguridad\bin\Debug\netcoreapp3.1\Seguridad.pdb
+C:\CursosCoreVs31\CursosCoreVs31\Seguridad\bin\Debug\netcoreapp3.1\Aplicacion.dll
+C:\CursosCoreVs31\CursosCoreVs31\Seguridad\bin\Debug\netcoreapp3.1\Dominio.dll
+C:\CursosCoreVs31\CursosCoreVs31\Seguridad\bin\Debug\netcoreapp3.1\Persistencia.dll
+C:\CursosCoreVs31\CursosCoreVs31\Seguridad\bin\Debug\netcoreapp3.1\Aplicacion.pdb
+C:\CursosCoreVs31\CursosCoreVs31\Seguridad\bin\Debug\netcoreapp3.1\Dominio.pdb
+C:\CursosCoreVs31\CursosCoreVs31\Seguridad\bin\Debug\netcoreapp3.1\Persistencia.pdb
+C:\CursosCoreVs31\CursosCoreVs31\Seguridad\obj\Debug\netcoreapp3.1\Seguridad.csprojAssemblyReference.cache
+C:\CursosCoreVs31\CursosCoreVs31\Seguridad\obj\Debug\netcoreapp3.1\Seguridad.AssemblyInfoInputs.cache
+C:\CursosCoreVs31\CursosCoreVs31\Seguridad\obj\Debug\netcoreapp3.1\Seguridad.AssemblyInfo.cs
+C:\CursosCoreVs31\CursosCoreVs31\Seguridad\obj\Debug\netcoreapp3.1\Seguridad.csproj.CoreCompileInputs.cache
+C:\CursosCoreVs31\CursosCoreVs31\Seguridad\obj\Debug\netcoreapp3.1\Seguridad.csproj.CopyComplete
+C:\CursosCoreVs31\CursosCoreVs31\Seguridad\obj\Debug\netcoreapp3.1\Seguridad.dll
+C:\CursosCoreVs31\CursosCoreVs31\Seguridad\obj\Debug\netcoreapp3.1\Seguridad.pdb

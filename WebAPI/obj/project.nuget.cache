@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RAV5k62EitZ7i0GVVQ9GO/AcBxhKatDlii9LEWtKpHntDG1D7HudUrDVz4rLwY6YBfpgwz3u4cY07CqunRMDOw==",
+  "dgSpecHash": "3VEqn90XQ6MYQKLL1Hw+T2PUWkfGmhphYDE8rrEAG3KrC/IYDo/nCOh19dkQ7cCr+thwCtQ4pcc/iIcPQkBkpA==",
   "success": true,
-  "projectFilePath": "c:\\CursosCoreVs31\\CursosCoreVs31\\WebAPI\\WebAPI.csproj",
+  "projectFilePath": "C:\\CursosCoreVs31\\CursosCoreVs31\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\54221\\.nuget\\packages\\fluentvalidation\\8.6.2\\fluentvalidation.8.6.2.nupkg.sha512",
     "C:\\Users\\54221\\.nuget\\packages\\fluentvalidation.aspnetcore\\8.6.2\\fluentvalidation.aspnetcore.8.6.2.nupkg.sha512",

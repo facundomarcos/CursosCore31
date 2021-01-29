@@ -68,3 +68,9 @@ C:\CursosCoreVs31\CursosCoreVs31\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNet
 C:\CursosCoreVs31\CursosCoreVs31\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
 C:\CursosCoreVs31\CursosCoreVs31\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
 C:\CursosCoreVs31\CursosCoreVs31\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\CursosCoreVs31\CursosCoreVs31\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\CursosCoreVs31\CursosCoreVs31\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\CursosCoreVs31\CursosCoreVs31\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\CursosCoreVs31\CursosCoreVs31\WebAPI\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\CursosCoreVs31\CursosCoreVs31\WebAPI\bin\Debug\netcoreapp3.1\Seguridad.dll
+C:\CursosCoreVs31\CursosCoreVs31\WebAPI\bin\Debug\netcoreapp3.1\Seguridad.pdb
