@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Aplicacion.ManejadorError;
 using Dominio;
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 
@@ -13,6 +14,15 @@ namespace Aplicacion.Seguridad
         public class Ejecuta : IRequest<Usuario>{
             public string Email {get;set;}
             public string Password {get;set;}
+        }
+
+        //va a validar que email ni password sea vacio con fluentvalidator
+        public class EjecutaValidacion : AbstractValidator<Ejecuta>{
+            public EjecutaValidacion(){
+                RuleFor(x=>x.Email).NotEmpty();
+                RuleFor(x=>x.Password).NotEmpty();
+
+            }
         }
 
         public class Manejador : IRequestHandler<Ejecuta, Usuario>
