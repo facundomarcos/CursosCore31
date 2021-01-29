@@ -1,7 +1,7 @@
-video 69
+video 70
 
 comando para ejecutar las migraciones
 dotnet ef migrations add IdentityCoreInicial -p Persistencia/ -s WebAPI/
 
 comando para arrancar el proyecto
-dotnet run -p WebAPI/
+dotnet run -p WebAPI/s
