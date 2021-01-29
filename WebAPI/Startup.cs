@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Aplicacion.Cursos;
+using Dominio;
 using FluentValidation.AspNetCore;
 using MediatR;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 //using Microsoft.OpenApi.Models;
@@ -38,8 +42,16 @@ namespace WebAPI
             services.AddMediatR(typeof(Consulta.Manejador).Assembly);
 
             services.AddControllers().AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<Nuevo>());
-            
+            //agregamos como servicio el coreidentity
+            //instancia de la clase usuario
+           var builder = services.AddIdentityCore<Usuario>();
+           var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
+           //instancia de la clase identityframework
+           identityBuilder.AddEntityFrameworkStores<CursosOnlineContext>();
+           //el manejo del login
+           identityBuilder.AddSignInManager<SignInManager<Usuario>>();
            
+           services.TryAddSingleton<ISystemClock, SystemClock>();
 
             services.AddControllers();
         }

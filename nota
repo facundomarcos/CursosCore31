@@ -1,1 +1,4 @@
-video 53
+video 58
+
+comando para ejecutar las migraciones
+dotnet ef migrations add IdentityCoreInicial -p Persistencia/ -s WebAPI/
