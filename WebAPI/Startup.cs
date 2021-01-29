@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Aplicacion.Contratos;
 using Aplicacion.Cursos;
 using Dominio;
 using FluentValidation.AspNetCore;
@@ -20,6 +21,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 //using Microsoft.OpenApi.Models;
 using Persistencia;
+using Seguridad;
 using WebAPI.Middleware;
 
 namespace WebAPI
@@ -52,6 +54,8 @@ namespace WebAPI
            identityBuilder.AddSignInManager<SignInManager<Usuario>>();
            
            services.TryAddSingleton<ISystemClock, SystemClock>();
+            //para los tokens de seguridad 
+           services.AddScoped<IJwtGenerador, JwtGenerador>();
 
             services.AddControllers();
         }
