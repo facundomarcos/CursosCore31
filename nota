@@ -1,4 +1,4 @@
-video 86
+video 89
 
 comando para ejecutar las migraciones
 dotnet ef migrations add IdentityCoreInicial -p Persistencia/ -s WebAPI/
