@@ -8,6 +8,7 @@ using Dominio;
 using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,6 +24,8 @@ using Microsoft.Extensions.Logging;
 using Persistencia;
 using Seguridad;
 using WebAPI.Middleware;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace WebAPI
 {
@@ -54,6 +57,18 @@ namespace WebAPI
            identityBuilder.AddSignInManager<SignInManager<Usuario>>();
            
            services.TryAddSingleton<ISystemClock, SystemClock>();
+
+           //para que no se pueda acceder si no se tiene la seguridad del token
+           var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Mi palabra secreta"));
+           services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt => {
+               opt.TokenValidationParameters = new TokenValidationParameters{
+                   ValidateIssuerSigningKey =  true,
+                   IssuerSigningKey = key,
+                   ValidateAudience = false,
+                   ValidateIssuer = false
+               };
+           });
+
             //para los tokens de seguridad 
            services.AddScoped<IJwtGenerador, JwtGenerador>();
 
@@ -71,6 +86,7 @@ namespace WebAPI
             }
 
             //app.UseHttpsRedirection();
+            app.UseAuthentication();
 
             app.UseRouting();
 
