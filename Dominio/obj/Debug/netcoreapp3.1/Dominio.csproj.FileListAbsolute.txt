@@ -1,0 +1,12 @@
+C:\CursosCoreVs31\CursosCoreVs31\Dominio\obj\Debug\netcoreapp3.1\Dominio.csprojAssemblyReference.cache
+C:\CursosCoreVs31\CursosCoreVs31\Dominio\obj\Debug\netcoreapp3.1\Dominio.AssemblyInfoInputs.cache
+C:\CursosCoreVs31\CursosCoreVs31\Dominio\obj\Debug\netcoreapp3.1\Dominio.AssemblyInfo.cs
+C:\CursosCoreVs31\CursosCoreVs31\Dominio\obj\Debug\netcoreapp3.1\Dominio.csproj.CoreCompileInputs.cache
+C:\CursosCoreVs31\CursosCoreVs31\Dominio\bin\Debug\netcoreapp3.1\Dominio.deps.json
+C:\CursosCoreVs31\CursosCoreVs31\Dominio\bin\Debug\netcoreapp3.1\Dominio.dll
+C:\CursosCoreVs31\CursosCoreVs31\Dominio\bin\Debug\netcoreapp3.1\Dominio.pdb
+C:\CursosCoreVs31\CursosCoreVs31\Dominio\obj\Debug\netcoreapp3.1\Dominio.dll
+C:\CursosCoreVs31\CursosCoreVs31\Dominio\obj\Debug\netcoreapp3.1\Dominio.pdb
+C:\CursosCoreVs31\CursosCoreVs31\Dominio\bin\Debug\netcoreapp3.1\Dominio.runtimeconfig.json
+C:\CursosCoreVs31\CursosCoreVs31\Dominio\bin\Debug\netcoreapp3.1\Dominio.runtimeconfig.dev.json
+C:\CursosCoreVs31\CursosCoreVs31\Dominio\obj\Debug\netcoreapp3.1\Dominio.genruntimeconfig.cache
