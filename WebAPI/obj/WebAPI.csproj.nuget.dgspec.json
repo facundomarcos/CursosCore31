@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\CursosCoreVs31\\CursosCoreVs31\\WebAPI\\WebAPI.csproj": {}
+    "c:\\CursosCoreVs31\\CursosCoreVs31\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\CursosCoreVs31\\CursosCoreVs31\\Aplicacion\\Aplicacion.csproj": {
+    "c:\\CursosCoreVs31\\CursosCoreVs31\\Aplicacion\\Aplicacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CursosCoreVs31\\CursosCoreVs31\\Aplicacion\\Aplicacion.csproj",
+        "projectUniqueName": "c:\\CursosCoreVs31\\CursosCoreVs31\\Aplicacion\\Aplicacion.csproj",
         "projectName": "Aplicacion",
-        "projectPath": "C:\\CursosCoreVs31\\CursosCoreVs31\\Aplicacion\\Aplicacion.csproj",
+        "projectPath": "c:\\CursosCoreVs31\\CursosCoreVs31\\Aplicacion\\Aplicacion.csproj",
         "packagesPath": "C:\\Users\\54221\\.nuget\\packages\\",
-        "outputPath": "C:\\CursosCoreVs31\\CursosCoreVs31\\Aplicacion\\obj\\",
+        "outputPath": "c:\\CursosCoreVs31\\CursosCoreVs31\\Aplicacion\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -32,11 +32,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\CursosCoreVs31\\CursosCoreVs31\\Dominio\\Dominio.csproj": {
-                "projectPath": "C:\\CursosCoreVs31\\CursosCoreVs31\\Dominio\\Dominio.csproj"
+              "c:\\CursosCoreVs31\\CursosCoreVs31\\Dominio\\Dominio.csproj": {
+                "projectPath": "c:\\CursosCoreVs31\\CursosCoreVs31\\Dominio\\Dominio.csproj"
               },
-              "C:\\CursosCoreVs31\\CursosCoreVs31\\Persistencia\\Persistencia.csproj": {
-                "projectPath": "C:\\CursosCoreVs31\\CursosCoreVs31\\Persistencia\\Persistencia.csproj"
+              "c:\\CursosCoreVs31\\CursosCoreVs31\\Persistencia\\Persistencia.csproj": {
+                "projectPath": "c:\\CursosCoreVs31\\CursosCoreVs31\\Persistencia\\Persistencia.csproj"
               }
             }
           }
@@ -88,14 +88,14 @@
         }
       }
     },
-    "C:\\CursosCoreVs31\\CursosCoreVs31\\Dominio\\Dominio.csproj": {
+    "c:\\CursosCoreVs31\\CursosCoreVs31\\Dominio\\Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CursosCoreVs31\\CursosCoreVs31\\Dominio\\Dominio.csproj",
+        "projectUniqueName": "c:\\CursosCoreVs31\\CursosCoreVs31\\Dominio\\Dominio.csproj",
         "projectName": "Dominio",
-        "projectPath": "C:\\CursosCoreVs31\\CursosCoreVs31\\Dominio\\Dominio.csproj",
+        "projectPath": "c:\\CursosCoreVs31\\CursosCoreVs31\\Dominio\\Dominio.csproj",
         "packagesPath": "C:\\Users\\54221\\.nuget\\packages\\",
-        "outputPath": "C:\\CursosCoreVs31\\CursosCoreVs31\\Dominio\\obj\\",
+        "outputPath": "c:\\CursosCoreVs31\\CursosCoreVs31\\Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -161,14 +161,14 @@
         }
       }
     },
-    "C:\\CursosCoreVs31\\CursosCoreVs31\\Persistencia\\Persistencia.csproj": {
+    "c:\\CursosCoreVs31\\CursosCoreVs31\\Persistencia\\Persistencia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CursosCoreVs31\\CursosCoreVs31\\Persistencia\\Persistencia.csproj",
+        "projectUniqueName": "c:\\CursosCoreVs31\\CursosCoreVs31\\Persistencia\\Persistencia.csproj",
         "projectName": "Persistencia",
-        "projectPath": "C:\\CursosCoreVs31\\CursosCoreVs31\\Persistencia\\Persistencia.csproj",
+        "projectPath": "c:\\CursosCoreVs31\\CursosCoreVs31\\Persistencia\\Persistencia.csproj",
         "packagesPath": "C:\\Users\\54221\\.nuget\\packages\\",
-        "outputPath": "C:\\CursosCoreVs31\\CursosCoreVs31\\Persistencia\\obj\\",
+        "outputPath": "c:\\CursosCoreVs31\\CursosCoreVs31\\Persistencia\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -189,8 +189,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\CursosCoreVs31\\CursosCoreVs31\\Dominio\\Dominio.csproj": {
-                "projectPath": "C:\\CursosCoreVs31\\CursosCoreVs31\\Dominio\\Dominio.csproj"
+              "c:\\CursosCoreVs31\\CursosCoreVs31\\Dominio\\Dominio.csproj": {
+                "projectPath": "c:\\CursosCoreVs31\\CursosCoreVs31\\Dominio\\Dominio.csproj"
               }
             }
           }
@@ -242,14 +242,14 @@
         }
       }
     },
-    "C:\\CursosCoreVs31\\CursosCoreVs31\\Seguridad\\Seguridad.csproj": {
+    "c:\\CursosCoreVs31\\CursosCoreVs31\\Seguridad\\Seguridad.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CursosCoreVs31\\CursosCoreVs31\\Seguridad\\Seguridad.csproj",
+        "projectUniqueName": "c:\\CursosCoreVs31\\CursosCoreVs31\\Seguridad\\Seguridad.csproj",
         "projectName": "Seguridad",
-        "projectPath": "C:\\CursosCoreVs31\\CursosCoreVs31\\Seguridad\\Seguridad.csproj",
+        "projectPath": "c:\\CursosCoreVs31\\CursosCoreVs31\\Seguridad\\Seguridad.csproj",
         "packagesPath": "C:\\Users\\54221\\.nuget\\packages\\",
-        "outputPath": "C:\\CursosCoreVs31\\CursosCoreVs31\\Seguridad\\obj\\",
+        "outputPath": "c:\\CursosCoreVs31\\CursosCoreVs31\\Seguridad\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -270,8 +270,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\CursosCoreVs31\\CursosCoreVs31\\Aplicacion\\Aplicacion.csproj": {
-                "projectPath": "C:\\CursosCoreVs31\\CursosCoreVs31\\Aplicacion\\Aplicacion.csproj"
+              "c:\\CursosCoreVs31\\CursosCoreVs31\\Aplicacion\\Aplicacion.csproj": {
+                "projectPath": "c:\\CursosCoreVs31\\CursosCoreVs31\\Aplicacion\\Aplicacion.csproj"
               }
             }
           }
@@ -285,6 +285,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -307,14 +313,14 @@
         }
       }
     },
-    "C:\\CursosCoreVs31\\CursosCoreVs31\\WebAPI\\WebAPI.csproj": {
+    "c:\\CursosCoreVs31\\CursosCoreVs31\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CursosCoreVs31\\CursosCoreVs31\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "c:\\CursosCoreVs31\\CursosCoreVs31\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\CursosCoreVs31\\CursosCoreVs31\\WebAPI\\WebAPI.csproj",
+        "projectPath": "c:\\CursosCoreVs31\\CursosCoreVs31\\WebAPI\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\54221\\.nuget\\packages\\",
-        "outputPath": "C:\\CursosCoreVs31\\CursosCoreVs31\\WebAPI\\obj\\",
+        "outputPath": "c:\\CursosCoreVs31\\CursosCoreVs31\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -335,11 +341,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\CursosCoreVs31\\CursosCoreVs31\\Aplicacion\\Aplicacion.csproj": {
-                "projectPath": "C:\\CursosCoreVs31\\CursosCoreVs31\\Aplicacion\\Aplicacion.csproj"
+              "c:\\CursosCoreVs31\\CursosCoreVs31\\Aplicacion\\Aplicacion.csproj": {
+                "projectPath": "c:\\CursosCoreVs31\\CursosCoreVs31\\Aplicacion\\Aplicacion.csproj"
               },
-              "C:\\CursosCoreVs31\\CursosCoreVs31\\Seguridad\\Seguridad.csproj": {
-                "projectPath": "C:\\CursosCoreVs31\\CursosCoreVs31\\Seguridad\\Seguridad.csproj"
+              "c:\\CursosCoreVs31\\CursosCoreVs31\\Seguridad\\Seguridad.csproj": {
+                "projectPath": "c:\\CursosCoreVs31\\CursosCoreVs31\\Seguridad\\Seguridad.csproj"
               }
             }
           }
