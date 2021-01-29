@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{A55F5663-53C3-42F3-A12F-22ECC31B3846}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dominio", "Dominio\Dominio.csproj", "{A55F5663-53C3-42F3-A12F-22ECC31B3846}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistencia", "Persistencia\Persistencia.csproj", "{BE5F6305-FADD-4D7A-B8D3-E8F56E3888D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistencia", "Persistencia\Persistencia.csproj", "{BE5F6305-FADD-4D7A-B8D3-E8F56E3888D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aplicacion", "Aplicacion\Aplicacion.csproj", "{18947A72-586A-431D-A550-9F92208BD165}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aplicacion", "Aplicacion\Aplicacion.csproj", "{18947A72-586A-431D-A550-9F92208BD165}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{15CCFE48-67C4-447C-A2CB-FA3AB9A703B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{15CCFE48-67C4-447C-A2CB-FA3AB9A703B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seguridad", "Seguridad\Seguridad.csproj", "{87A0DB77-2824-4289-B4AE-B335B657DEAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{15CCFE48-67C4-447C-A2CB-FA3AB9A703B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15CCFE48-67C4-447C-A2CB-FA3AB9A703B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15CCFE48-67C4-447C-A2CB-FA3AB9A703B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87A0DB77-2824-4289-B4AE-B335B657DEAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87A0DB77-2824-4289-B4AE-B335B657DEAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87A0DB77-2824-4289-B4AE-B335B657DEAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87A0DB77-2824-4289-B4AE-B335B657DEAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
