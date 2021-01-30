@@ -29,6 +29,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using AutoMapper;
+using Persistencia.DapperConexion;
 
 namespace WebAPI
 {
@@ -47,6 +48,12 @@ namespace WebAPI
             services.AddDbContext<CursosOnlineContext>(opt => {
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            //servicio para conectar la base de datos con Dapper
+            //cuando se usan procedimientos de almacenado
+            services.Configure<ConexionConfiguracion>(Configuration.GetSection("DefaultConnection"));
+            
+
             services.AddMediatR(typeof(Consulta.Manejador).Assembly);
 
             services.AddControllers(opt => {
