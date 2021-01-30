@@ -5,3 +5,11 @@ dotnet ef migrations add IdentityCoreInicial -p Persistencia/ -s WebAPI/
 
 comando para arrancar el proyecto
 dotnet run -p WebAPI/s
+
+
+Pasos con store procedure
+->Persistencia/DapperConexion/Instructor/InstructorModel.cs             (modelo)
+->Persistencia/DapperConexion/Instructor/IInstructor.cs                 (interface)
+->Persistencia/DapperConexion/Instructor/IInstructorRepositorio.cs      (implementacioninterface - metodos - base de datos)
+->Aplicacion/Entidad/Operacion.cs                                       ( logica de negocio - Nuevo, Editar, Consulta)
+->WebAPI/Controllers/Entidad+Controller                                 (endpoint)

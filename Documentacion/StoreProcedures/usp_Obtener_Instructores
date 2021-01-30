@@ -1,0 +1,14 @@
+CREATE PROCEDURE usp_Obtener_Instructores
+AS 
+	BEGIN
+		SET NOCOUNT ON
+		SELECT 
+			X.InstructorId,
+			X.Nombre,
+			X.Apellidos,
+			X.Grado
+
+			
+		FROM Instructor X
+
+	END

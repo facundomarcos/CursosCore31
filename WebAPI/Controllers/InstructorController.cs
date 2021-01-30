@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Aplicacion.Instructores;
@@ -18,6 +19,13 @@ namespace WebAPI.Controllers
         // http://localhost:5000/api/Instructor
         [HttpPost]
         public async Task<ActionResult<Unit>> Crear(Nuevo.Ejecuta data){
+            return await Mediator.Send(data);
+        }
+
+        // http://localhost:5000/api/Instructor/id
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Unit>> Actualizar(Guid id, Editar.Ejecuta data){
+            data.InstructorId = id;
             return await Mediator.Send(data);
         }
         
