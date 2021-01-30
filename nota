@@ -15,4 +15,5 @@ Pasos con store procedure
 ->WebAPI/Controllers/Entidad+Controller                                 (endpoint)
 
 Pasos con EntityFramework
-->Aplicacion/Entidad/Operacion.cs   
+->Aplicacion/Entidad/Operacion.cs                                       ( logica de negocio - Nuevo, Editar, Consulta)
+->WebAPI/Controllers/Entidad+Controller                                 (endpoint)
