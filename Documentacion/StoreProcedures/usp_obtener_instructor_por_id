@@ -1,0 +1,13 @@
+CREATE PROCEDURE usp_Obtener_Instructor_por_id (
+	@Id uniqueidentifier
+	)
+AS 
+	BEGIN
+		SELECT 
+			InstructorId,
+			Nombre,
+			Apellidos,
+			Grado
+	from Instructor WHERE InstructorId = @Id
+
+	END
