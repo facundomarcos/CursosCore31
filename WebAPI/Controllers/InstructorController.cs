@@ -28,6 +28,12 @@ namespace WebAPI.Controllers
             data.InstructorId = id;
             return await Mediator.Send(data);
         }
+
+        // http://localhost:5000/api/Instructor/id
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Unit>> Eliminar(Guid id){
+            return await Mediator.Send(new Eliminar.Ejecuta{InstructorId = id});
+        }
         
     }
 }
