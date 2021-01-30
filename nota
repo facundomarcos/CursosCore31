@@ -1,4 +1,4 @@
-video 99
+video 103
 
 comando para ejecutar las migraciones
 dotnet ef migrations add IdentityCoreInicial -p Persistencia/ -s WebAPI/
@@ -10,6 +10,6 @@ dotnet run -p WebAPI/s
 Pasos con store procedure
 ->Persistencia/DapperConexion/Instructor/InstructorModel.cs             (modelo)
 ->Persistencia/DapperConexion/Instructor/IInstructor.cs                 (interface)
-->Persistencia/DapperConexion/Instructor/IInstructorRepositorio.cs      (implementacioninterface - metodos - base de datos)
+->Persistencia/DapperConexion/Instructor/IInstructorRepositorio.cs      (implementacioninterface - metodos - storeprocedure base de datos)
 ->Aplicacion/Entidad/Operacion.cs                                       ( logica de negocio - Nuevo, Editar, Consulta)
 ->WebAPI/Controllers/Entidad+Controller                                 (endpoint)
