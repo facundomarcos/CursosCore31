@@ -10,7 +10,7 @@ namespace Persistencia.DapperConexion.Instructor
          
         Task<InstructorModel> ObtenerPorId(Guid id);
         //Task<int> porque devuelve la cantidad de transacciones realizadas
-        Task<int> Nuevo(InstructorModel parametros);
+        Task<int> Nuevo(string nombre, string apellido, string grado);
         Task<int> Actualiza(InstructorModel parametros);
         Task<int> Elimina(Guid id);
     }
