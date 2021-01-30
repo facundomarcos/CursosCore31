@@ -13,9 +13,28 @@ namespace Persistencia.DapperConexion.Instructor
         {
             _factoryConnection = factoryConnection;
         }
-        public Task<int> Actualiza(InstructorModel parametros)
+        public async Task<int> Actualiza(Guid instructorId, string nombre, string apellidos, string grado)
         {
-            throw new NotImplementedException();
+            var storeProcedure = "usp_instructor_editar";
+            try{
+                var connection = _factoryConnection.GetConnection();
+                var resultados = await connection.ExecuteAsync(
+                    storeProcedure,
+                    new {
+                        InstructorId = instructorId,
+                        Nombre = nombre,
+                        Apellidos = apellidos,
+                        Grado = grado
+                    },
+                    commandType :  CommandType.StoredProcedure
+                );
+               _factoryConnection.CloseConnection();
+               return resultados;
+            }catch(Exception e){
+                throw new Exception("No se pudo editar la data del instructor", e);
+
+            }
+            
         }
 
         public Task<int> Elimina(Guid id)
