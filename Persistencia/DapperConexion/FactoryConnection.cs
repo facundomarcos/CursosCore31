@@ -9,8 +9,8 @@ namespace Persistencia.DapperConexion
         private IDbConnection _connection;
         private readonly IOptions<ConexionConfiguracion> _configs;
         //inyectar la cadena de conexion
-        public FactoryConnection(IDbConnection connection){
-            _connection = connection;
+        public FactoryConnection(IOptions<ConexionConfiguracion> configs){
+            _configs = configs;
         }
         //cuando se abre una conexion, no se puede dejar abierta, entonces usamos este metodo para cerrarla
         public void CloseConnection()
@@ -24,7 +24,7 @@ namespace Persistencia.DapperConexion
         {
             //si no hay conexion, que la cree
             if(_connection == null){
-                _connection = new SqlConnection(_configs.Value.ConexionSQL);
+                _connection = new SqlConnection(_configs.Value.DefaultConnection);
             }
             //si no esta abierta, que la abra
             if(_connection.State != ConnectionState.Open){

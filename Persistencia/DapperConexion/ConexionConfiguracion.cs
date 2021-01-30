@@ -2,6 +2,7 @@ namespace Persistencia.DapperConexion
 {
     public class ConexionConfiguracion
     {
-        public string ConexionSQL {get;set;}
+        //es la propiedad que esta en el appsettings.json
+        public string DefaultConnection {get;set;}
     }
 }

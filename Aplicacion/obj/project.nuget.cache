@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5h19CRd9gm0mivlCaGK2n3HmTrTs1v9Jy4ch0YCkJGOtRY5tnR9K7mY2C1XoekXr8P0+amfoeGezKrQfvX/y/A==",
+  "dgSpecHash": "uqzlxyMDJYNfwxRH1XKXaivDrBDFfvPHhSecmtKGD4vxP5Gefd8YFl08lKxn1O1preL4TNOwmk8Ez4ZhPZFWzw==",
   "success": true,
-  "projectFilePath": "c:\\CursosCoreVs31\\CursosCoreVs31\\Aplicacion\\Aplicacion.csproj",
+  "projectFilePath": "C:\\CursosCoreVs31\\CursosCoreVs31\\Aplicacion\\Aplicacion.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\54221\\.nuget\\packages\\automapper\\8.1.1\\automapper.8.1.1.nupkg.sha512",
     "C:\\Users\\54221\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\6.1.1\\automapper.extensions.microsoft.dependencyinjection.6.1.1.nupkg.sha512",

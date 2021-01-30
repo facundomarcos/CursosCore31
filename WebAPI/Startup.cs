@@ -30,6 +30,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using AutoMapper;
 using Persistencia.DapperConexion;
+using Persistencia.DapperConexion.Instructor;
 
 namespace WebAPI
 {
@@ -49,10 +50,11 @@ namespace WebAPI
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            services.AddOptions();
             //servicio para conectar la base de datos con Dapper
             //cuando se usan procedimientos de almacenado
-            services.Configure<ConexionConfiguracion>(Configuration.GetSection("DefaultConnection"));
-            
+            services.Configure<ConexionConfiguracion>(Configuration.GetSection("ConnectionStrings"));
+
 
             services.AddMediatR(typeof(Consulta.Manejador).Assembly);
 
@@ -93,6 +95,10 @@ namespace WebAPI
            services.AddScoped<IUsuarioSesion, UsuarioSesion>();
            //agregamos el servicio de automapper para convertir los dto
            services.AddAutoMapper(typeof(Consulta.Manejador));
+           //agrega el servicio para conectarse a sqlserver mediante Dapper
+           services.AddTransient<IFactoryConnection, FactoryConnection>();
+           //y se van a usar los metodos que implementa la interface 
+           services.AddScoped<IInstructor, InstructorRepositorio>();
 
             services.AddControllers();
         }
