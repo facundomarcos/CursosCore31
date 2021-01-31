@@ -1,4 +1,4 @@
-video 106
+video 108
 
 comando para ejecutar las migraciones
 dotnet ef migrations add IdentityCoreInicial -p Persistencia/ -s WebAPI/
@@ -17,3 +17,9 @@ Pasos con store procedure
 Pasos con EntityFramework
 ->Aplicacion/Entidad/Operacion.cs                                       ( logica de negocio - Nuevo, Editar, Consulta)
 ->WebAPI/Controllers/Entidad+Controller                                 (endpoint)
+
+
+Comando para ejecutar una migracion
+dotnet ef migrations add AgregarColumnasFecha -p Persistencia/ -s WebAPI/
+cd WebAPI
+dotnet watch run
