@@ -73,6 +73,12 @@ namespace WebAPI
             //instancia de la clase usuario
            var builder = services.AddIdentityCore<Usuario>();
            var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
+
+            //agregamos el builder para los roles
+            identityBuilder.AddRoles<IdentityRole>();
+            //y los claims para las autorizaciones, es una clase en la cual van a interactuar los usuarios con sus roles
+            identityBuilder.AddClaimsPrincipalFactory<UserClaimsPrincipalFactory<Usuario,IdentityRole>>();
+
            //instancia de la clase identityframework
            identityBuilder.AddEntityFrameworkStores<CursosOnlineContext>();
            //el manejo del login
