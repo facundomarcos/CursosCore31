@@ -13,8 +13,10 @@ namespace Persistencia.DapperConexion.Paginacion
         public PaginacionRepositorio(IFactoryConnection factoryConnection){
             _factoryConnection = factoryConnection;
         }
+        //devolverPaginacion() es consumido en la capa de negocios
         public async Task<PaginacionModel> devolverPaginacion(string storeProcedure, int numeroPagina, int cantidadElementos, IDictionary<string, object> parametrosFiltro, string ordenamientoColumna)
         {
+            //es el objeto que va a devolver el task
             PaginacionModel paginacionModel = new PaginacionModel();
             List<IDictionary<string,object>> listaReporte = null;
             //declara e inicializa las variables de salida
@@ -44,7 +46,7 @@ namespace Persistencia.DapperConexion.Paginacion
                     //procedimiento de almacenado
                     storeProcedure,
                     //parametros
-                    null,
+                    parametros,
                     //
                     commandType:  System.Data.CommandType.StoredProcedure
                     );
@@ -69,6 +71,7 @@ namespace Persistencia.DapperConexion.Paginacion
             {
                 _factoryConnection.CloseConnection();
             }
+            return paginacionModel;
             
         }
     }
