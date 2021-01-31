@@ -24,7 +24,7 @@ namespace Aplicacion.Cursos
             }
             public async Task<PaginacionModel> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                var storeProcedure = "usp_obtener_paginacion";
+                var storeProcedure = "usp_obtener_curso_paginacion";
                 //columna por la cual se ordena el procedimiento
                 var ordenamiento = "Titulo";
                 var parametros = new Dictionary<string, object>();

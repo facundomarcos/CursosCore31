@@ -1,0 +1,91 @@
+CREATE PROCEDURE usp_obtener_curso_paginacion(
+	@NombreCurso nvarchar(500),
+	@Ordenamiento nvarchar(500),
+	@NumeroPagina int,
+	@CantidadElementos int,
+	@TotalRecords int OUTPUT,
+	@TotalPaginas int OUTPUT
+
+)AS
+BEGIN
+	/*Que no devuelva la cantidad de registros afectados*/
+	SET NOCOUNT ON
+	/*Si hay un usuario realizando una transaccion, que mi consulta espere*/
+	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+	/*Determina el inicio y el fin de la pagina con la cantidad de registros*/
+	DECLARE @Inicio int
+	DECLARE @Fin int
+
+	IF @NumeroPagina = 1
+		BEGIN
+		/*Ejemplo -> pagina 1, cantidad de paginas 10 .... (1 * 10) - 10 = 0     */
+			SET @Inicio = (@NumeroPagina*@CantidadElementos) - @CantidadElementos
+			SET @Fin = @NumeroPagina * @CantidadElementos
+		END
+	ELSE
+		BEGIN
+		/*Ejemplo ->pagina 2, cantidad de paginas 10 .... ((2 * 10) - 10) + 1 = 11 */
+			SET @Inicio = ((@NumeroPagina*@CantidadElementos) - @CantidadElementos) + 1
+			SET @Fin = (@NumeroPagina * @CantidadElementos)
+
+		END
+
+	/*tabla temporal para filtrar los registros, la tabla se elimina cuando termina el procedimiento*/
+	CREATE TABLE #TMP(
+		rowNumber int IDENTITY(1,1),
+		ID uniqueidentifier
+	)
+	DECLARE @SQL nvarchar(max)
+	SET @SQL = ' SELECT CursoId FROM Curso '
+
+	/*si el valor de filtro no es null que lo concatene en el query*/
+	IF @NombreCurso IS NOT NULL
+		BEGIN
+			SET @SQL = @SQL + '	WHERE Titulo LIKE ''%' + @NombreCurso + '%'' '
+		END
+
+		-- y que lo ordene, en caso que haya especificado un ordenamiento
+	IF @Ordenamiento IS NOT NULL
+		BEGIN
+			SET @SQL =  @SQL + ' ORDER BY ' +@Ordenamiento
+		END
+		--Inserta en la tabla temporal 
+	INSERT INTO #TMP(ID)
+	EXEC sp_executesql @SQL
+
+	SELECT @TotalRecords = Count(*) FROM #TMP
+
+	IF @TotalRecords > @CantidadElementos
+		BEGIN
+			SET @TotalPaginas = @TotalRecords / @CantidadElementos
+			-- cuando hay un sobrante, hay una pagina mas y se calcula con la funcion modulo
+				IF (@TotalRecords % @CantidadElementos) > 0
+					BEGIN
+						SET @TotalPaginas = @TotalPaginas + 1
+					END
+		END
+	ELSE
+		BEGIN
+			SET @TotalPaginas = 1
+		END
+
+	SELECT
+		c.CursoId,
+		c.Titulo,
+		c.Descripcion,
+		c.FechaPublicacion,
+		c.FotoPortada,
+		c.FechaCreacion,
+		p.PrecioActual,
+		p.Promocion
+	FROM #TMP  t INNER JOIN dbo.Curso c 
+			ON t.ID = c.CursoId
+		LEFT JOIN Precio p
+			ON c.CursoId = p.CursoId
+
+	WHERE t.rowNumber >= @Inicio AND t.rowNumber <= @Fin
+			
+
+
+
+END
