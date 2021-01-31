@@ -1,4 +1,4 @@
-video 108
+video 109
 
 comando para ejecutar las migraciones
 dotnet ef migrations add IdentityCoreInicial -p Persistencia/ -s WebAPI/
@@ -23,3 +23,13 @@ Comando para ejecutar una migracion
 dotnet ef migrations add AgregarColumnasFecha -p Persistencia/ -s WebAPI/
 cd WebAPI
 dotnet watch run
+
+Pasos despues de agregar una columna EF
+->Dominio/Entidad.cs                                                    (agregar propiedad)
+->Hacer la migracion
+->Aplicacion/Entidad/Nuevo.cs                                           (agregar propiedad en Handle)
+->Aplicacion/Entidad/Editar.cs                                          (agregar propiedad en Handle)
+(Si tiene procedimiento de almacenado)->Modificar procedimiento de almacenado en la base de datos
+->Aplicacion/Entidad/EntidadDTO.cs                                      (agregar la propiedad)
+->Aplicacion/Entidad/EntidadAsociadaDTO.cs                              (agregar la propiedad / pueden ser una o mas las entidades asociadas)
+(Si la entidad asociada tiene procedimiento de almacenado)->Modificar procedimiento de almacenado en la base de datos para que entregue la propiedad

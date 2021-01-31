@@ -1,0 +1,23 @@
+USE [CursosOnline]
+GO
+/****** Object:  StoredProcedure [dbo].[usp_instructor_editar]    Script Date: 31/1/2021 10:45:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[usp_instructor_editar](
+	@InstructorId uniqueidentifier,
+	@Nombre nvarchar(500),
+	@Apellidos nvarchar(500),
+	@Grado nvarchar(100)
+)
+AS
+	BEGIN
+		UPDATE Instructor
+		SET 
+			Nombre = @Nombre,
+			Apellidos = @Apellidos,
+			Grado = @Grado,
+			FechaCreacion = GETUTCDATE()
+		WHERE InstructorId = @InstructorId
+	END

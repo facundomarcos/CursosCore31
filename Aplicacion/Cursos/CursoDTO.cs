@@ -16,6 +16,7 @@ namespace Aplicacion.Cursos
         public ICollection<InstructorDTO> Instructores {get;set;}
 
         public PrecioDTO Precio {get;set;}
+        public DateTime FechaCreacion {get;set;}
         public ICollection<ComentarioDTO> Comentarios {get;set;}
         
     }
