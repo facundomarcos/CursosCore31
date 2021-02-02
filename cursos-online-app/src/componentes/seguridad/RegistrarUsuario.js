@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Typography} from '@material-ui/core';
+import {Container, Typography, Grid, TextField} from '@material-ui/core';
 
 const style = {
     paper : {
@@ -7,6 +7,10 @@ const style = {
         display : "flex",
         flexDirection : "column",
         alignItems : "center"
+    },
+    form: {
+        width : "100%",
+        marginTop :  20
     }
 }
 
@@ -22,6 +26,15 @@ const RegistrarUsuario = () => {
                 <Typography component="h1" variant="h5">
                     Registro de Usuario
                 </Typography>
+                <form style={style.form}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={12} md={6}>
+                            <TextField name="nombre" variant="outlined" fullWidth label="Ingrese su nombre"/>
+
+                        </Grid>
+
+                    </Grid>
+                </form>
             </div>
         </Container>
     );
