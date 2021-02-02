@@ -13,6 +13,7 @@ Axios
 Material 
     npm install @material-ui/core
     npm install @material-ui/styles
+    npm install @material-ui/icons
 
 
 Nuggets .Net
