@@ -10,6 +10,9 @@ Auto Close Tag
 
 Para React
 Axios
+Material 
+    npm install @material-ui/core
+    npm install @material-ui/styles
 
 
 Nuggets .Net
