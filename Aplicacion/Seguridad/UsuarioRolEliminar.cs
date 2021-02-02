@@ -52,7 +52,7 @@ namespace Aplicacion.Seguridad
                     return Unit.Value;
                 }
 
-                throw new Exception("No se pudo agregar el Rol al usuario");
+                throw new Exception("No se pudo remover el Rol al usuario");
             }
         }
     }

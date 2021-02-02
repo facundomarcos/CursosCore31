@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -45,11 +46,17 @@ namespace Aplicacion.Seguridad
                 }
                 //verificó el mail y despues hay que verificar el password
                var resultado = await _signInManager.CheckPasswordSignInAsync(usuario, request.Password, false);
+               //agrega la lista de roles que tiene el usuario y que se van a cargar en creartoken
+               var resultadoRoles = await _userManager.GetRolesAsync(usuario);
+               //parsea a List
+               var listaRoles = new List<string>(resultadoRoles);
+
+
                 //si es exitoso
                 if(resultado.Succeeded){
                     return new UsuarioData{
                         NombreCompleto = usuario.NombreCompleto,
-                        Token = _jwtGenerador.CrearToken(usuario),
+                        Token = _jwtGenerador.CrearToken(usuario, listaRoles),
                         Username = usuario.UserName,
                         Email = usuario.Email,
                         Imagen = null

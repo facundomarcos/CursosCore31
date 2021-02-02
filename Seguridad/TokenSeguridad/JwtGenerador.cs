@@ -12,11 +12,21 @@ namespace Seguridad
     //se inyecta como servicio en startup webapi
     public class JwtGenerador : IJwtGenerador
     {
-        public string CrearToken(Usuario usuario)
+        //recibe parametros usuario y una lista de roles
+        public string CrearToken(Usuario usuario, List<string> roles)
         {
+            //la informacion relativa al usuario se guarda como claim
             var claims = new List<Claim>{
                 new Claim(JwtRegisteredClaimNames.NameId, usuario.UserName)
             };
+            //validar que la lista de roles no es nula
+            if(roles != null){
+                foreach(var rol in roles){
+                    //agrega los roles como claims dentro del token
+                    claims.Add(new Claim(ClaimTypes.Role, rol));
+                }
+            }
+
             //crear credenciales de acceso
             //palabra secreta que va a desencriptar el token
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Mi palabra secreta"));

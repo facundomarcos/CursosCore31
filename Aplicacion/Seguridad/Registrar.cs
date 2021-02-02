@@ -75,7 +75,8 @@ namespace Aplicacion.Seguridad
             if(resultado.Succeeded){
                 return new UsuarioData{
                     NombreCompleto = usuario.NombreCompleto,
-                    Token = _jwtGenerador.CrearToken(usuario),
+                    //la lista de roles es null porque el usuario se acaba de crear
+                    Token = _jwtGenerador.CrearToken(usuario, null),
                     Username = usuario.UserName,
                     Email = usuario.Email
                 };
