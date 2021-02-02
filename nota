@@ -39,3 +39,7 @@ Pasos despues de agregar una columna EF
 (Si la entidad asociada tiene procedimiento de almacenado)->Modificar procedimiento de almacenado en la base de datos para que entregue la propiedad
 
 
+
+
+Lista de paises Json
+https://restcountries.eu/rest/v2/all
