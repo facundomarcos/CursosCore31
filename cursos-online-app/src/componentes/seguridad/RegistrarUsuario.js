@@ -1,21 +1,6 @@
 import React from 'react';
 import {Container, Typography, Grid, TextField, Button} from '@material-ui/core';
-
-const style = {
-    paper : {
-        marginTop : 8,
-        display : "flex",
-        flexDirection : "column",
-        alignItems : "center"
-    },
-    form: {
-        width : "100%",
-        marginTop :  20
-    },
-    submit : {
-        marginTop : 15
-    }
-}
+import style from '../Tool/Style';
 
 const RegistrarUsuario = () => {
     return(
