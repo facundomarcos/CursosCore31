@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Container, Typography, Grid, TextField, Button} from '@material-ui/core';
 import style from '../Tool/Style';
+import { registrarUsuario } from '../../actions/UsuarioAction';
 
 const RegistrarUsuario = () => {
         //variable de estado para registrar en el backend
@@ -26,11 +27,13 @@ const RegistrarUsuario = () => {
             }))
         }
 
-        const registrarUsuario = e => {
+        const registrarUsuarioBoton = e => {
             //revisar, no toma prevent default
             e.preventDefault();
             //e.preventDefault();
-            console.log('imprime', usuario);
+            registrarUsuario(usuario).then(response => {
+                console.log('se registro exitosamente el usuario', response);
+            })
         }
 
     return(
@@ -65,7 +68,7 @@ const RegistrarUsuario = () => {
                     </Grid>
                     <Grid container justify="center">
                         <Grid item xs={12} md={6}>
-                            <Button type="submit" onClick={registrarUsuario} fullWidth variant="contained" color="primary" size="large" style={style.submit}>
+                            <Button type="submit" onClick={registrarUsuarioBoton} fullWidth variant="contained" color="primary" size="large" style={style.submit}>
                                 Enviar
                             </Button>
                         </Grid>

@@ -1,7 +1,4 @@
-video 153
-
-video 156, no funciona e.preventDefault(); linea 31
-
+video 161
 
 
 
@@ -13,7 +10,7 @@ npx create-react-app cursos-online-app
 npm start para correrlo
 
 comando para arrancar el proyecto
-dotnet run -p WebAPI
+dotnet run -p WebAPI/
 
 
 Pasos con store procedure
