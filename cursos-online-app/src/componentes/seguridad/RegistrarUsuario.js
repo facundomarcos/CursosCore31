@@ -33,7 +33,8 @@ const RegistrarUsuario = () => {
             //e.preventDefault();
             registrarUsuario(usuario).then(response => {
                 console.log('se registro exitosamente el usuario', response);
-            })
+                window.localStorage.setItem("token_seguridad", response.data.token);
+            });
         }
 
     return(
