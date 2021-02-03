@@ -10,6 +10,8 @@ Auto Close Tag
 
 Para React
 Axios
+    npm install axios
+
 Material 
     npm install @material-ui/core
     npm install @material-ui/styles
