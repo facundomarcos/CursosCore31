@@ -1,9 +1,29 @@
+import React, {useState} from 'react';
 import { Container,Typography, Grid, TextField, Button } from '@material-ui/core';
-import React from 'react';
 import style from '../Tool/Style';
 
 
 const PerfilUsuario = () => {
+    //variable de estado para manejar el token
+    const [usuario, setUsuario] = useState({
+            NombreCompleto : '',
+            Email : '',
+            Password : '',
+            ConfirmarPassword: ''
+    })
+
+    //esta funcion recibe los valores de la caja de texto con el metodo onChange y el value
+    const ingresarValoresMemoria = e => {
+        const {name, value} = e.target;
+        //que mantenga los valores que tenia y solo los cambie por los valores que se ingresen
+        setUsuario( anterior => ({
+            ...anterior,
+            [name] : value
+        }));
+    }
+
+
+
     return (
         <Container component="main" maxWidth="md" justify="center">
             <div style={style.paper}>
@@ -13,17 +33,17 @@ const PerfilUsuario = () => {
             </div>
             <form style={style.form}>
                 <Grid container spacing={2}>
-                    <Grid item xs={12} md={6}>
-                        <TextField name="nombrecompleto" variant="outlined" fullWidth label="Ingrese Nombre y Apellidos"/>
+                    <Grid item xs={12} md={12}>
+                        <TextField name="NombreCompleto" value={usuario.NombreCompleto} onChange={ingresarValoresMemoria} variant="outlined" fullWidth label="Ingrese Nombre y Apellidos"/>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <TextField name="email" variant="outlined" fullWidth label="Ingrese email"/>
+                        <TextField name="Email" value={usuario.Email} onChange={ingresarValoresMemoria} variant="outlined" fullWidth label="Ingrese email"/>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <TextField name="password" type="password" variant="outlined" fullWidth label="Ingrese Password"/>
+                        <TextField name="Password" value={usuario.Password} onChange={ingresarValoresMemoria} type="password" variant="outlined" fullWidth label="Ingrese Password"/>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <TextField name="confirmepassword" type="password" variant="outlined" fullWidth label="Confirme Password"/>
+                        <TextField name="ConfirmarPassword" value={usuario.ConfirmarPassword} onChange={ingresarValoresMemoria} type="password" variant="outlined" fullWidth label="Confirme Password"/>
                     </Grid>
                 </Grid>
                 <Grid container justify="center">
