@@ -1,8 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Container, Typography, Grid, TextField, Button} from '@material-ui/core';
 import style from '../Tool/Style';
 
 const RegistrarUsuario = () => {
+        //variable de estado para registrar en el backend
+        const [usuario, setUsuario] = useState({
+            //inicializamos todos los campos vacios
+            //los nombres deben coincidir con los nombre de las cajas de texto
+            NombreCompleto : '',
+            Email : '',
+            Password : '',
+            ConfirmarPassword: '',
+            Username: ''
+
+        })
+
+
     return(
         //md para visualizar tamaño maximo en computadora
         //xs smartphone
@@ -17,22 +30,19 @@ const RegistrarUsuario = () => {
                 <form style={style.form}>
                     <Grid container spacing={2}>
                         <Grid item xs={12} md={6}>
-                            <TextField name="nombre" variant="outlined" fullWidth label="Ingrese su Nombre"/>
+                            <TextField name="NombreCompleto" variant="outlined" fullWidth label="Ingrese su Nombre y Apellidos"/>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <TextField name="apellidos" variant="outlined" fullWidth label="Ingrese sus Apellidos"/>
+                            <TextField name="Email" variant="outlined" fullWidth label="Ingrese su email"/>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <TextField name="email" variant="outlined" fullWidth label="Ingrese su email"/>
+                            <TextField name="Username" variant="outlined" fullWidth label="Ingrese su Username"/>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <TextField name="username" variant="outlined" fullWidth label="Ingrese su Username"/>
+                            <TextField name="Password" type="password" variant="outlined" fullWidth label="Ingrese Password"/>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <TextField name="password" type="password" variant="outlined" fullWidth label="Ingrese Password"/>
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                            <TextField name="confirmacionpassword" type="password" variant="outlined" fullWidth label="Confirme Password"/>
+                            <TextField name="ConfirmarPassword" type="password" variant="outlined" fullWidth label="Confirme Password"/>
                         </Grid>
 
                     </Grid>

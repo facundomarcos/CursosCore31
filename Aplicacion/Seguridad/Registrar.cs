@@ -18,8 +18,8 @@ namespace Aplicacion.Seguridad
     {
         //http://localhost:5000/api/Usuario/login
         public class Ejecuta : IRequest<UsuarioData>{
-            public string Nombre {get;set;}
-            public string Apellidos {get;set;}
+            public string NombreCompleto {get;set;}
+            
             public string Email {get;set;}
             public string Password {get;set;}
             public string Username {get;set;}
@@ -29,8 +29,8 @@ namespace Aplicacion.Seguridad
         //valida que los campos ingresados no sean nulos o vacios
         public class EjecutaValidador : AbstractValidator<Ejecuta>{
             public EjecutaValidador(){
-                RuleFor(x => x.Nombre).NotEmpty();
-                RuleFor(x => x.Apellidos).NotEmpty();
+                RuleFor(x => x.NombreCompleto).NotEmpty();
+                //RuleFor(x => x.Apellidos).NotEmpty();
                 RuleFor(x => x.Email).NotEmpty();
                 RuleFor(x => x.Password).NotEmpty();
                 RuleFor(x => x.Username).NotEmpty();
@@ -64,7 +64,7 @@ namespace Aplicacion.Seguridad
             }
             //crea el usuario
             var usuario = new Usuario {
-                NombreCompleto = request.Nombre + " " + request.Apellidos,
+                NombreCompleto = request.NombreCompleto,
                 Email = request.Email,
                 UserName = request.Username
 
