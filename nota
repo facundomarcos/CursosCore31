@@ -1,5 +1,10 @@
 video 153
 
+video 156, no funciona e.preventDefault(); linea 31
+
+
+
+
 comando para ejecutar las migraciones
 dotnet ef migrations add IdentityCoreInicial -p Persistencia/ -s WebAPI/
 

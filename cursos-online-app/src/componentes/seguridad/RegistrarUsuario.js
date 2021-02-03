@@ -15,6 +15,23 @@ const RegistrarUsuario = () => {
 
         })
 
+        //esta funcion recibe los valores de la caja de texto con el metodo onChange y el value
+        const ingresarValoresMemoria = e =>{
+            const {name, value} = e.target;
+            //que mantenga los valores que tenia y solo los cambie por los valores que se ingresen
+            setUsuario( anterior => ({
+                ...anterior,
+                //NombreCompleto : 'Facundo Marcos'
+                [name] : value
+            }))
+        }
+
+        const registrarUsuario = e => {
+            //revisar, no toma prevent default
+            e.preventDefault();
+            //e.preventDefault();
+            console.log('imprime', usuario);
+        }
 
     return(
         //md para visualizar tamaño maximo en computadora
@@ -29,26 +46,26 @@ const RegistrarUsuario = () => {
                 </Typography>
                 <form style={style.form}>
                     <Grid container spacing={2}>
-                        <Grid item xs={12} md={6}>
-                            <TextField name="NombreCompleto" variant="outlined" fullWidth label="Ingrese su Nombre y Apellidos"/>
+                        <Grid item xs={12} md={12}>
+                            <TextField name="NombreCompleto" value={usuario.NombreCompleto} onChange={ingresarValoresMemoria} variant="outlined" fullWidth label="Ingrese su Nombre y Apellidos"/>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <TextField name="Email" variant="outlined" fullWidth label="Ingrese su email"/>
+                            <TextField name="Email" value={usuario.Email} onChange={ingresarValoresMemoria} variant="outlined" fullWidth label="Ingrese su email"/>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <TextField name="Username" variant="outlined" fullWidth label="Ingrese su Username"/>
+                            <TextField name="Username" value={usuario.Username} onChange={ingresarValoresMemoria} variant="outlined" fullWidth label="Ingrese su Username"/>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <TextField name="Password" type="password" variant="outlined" fullWidth label="Ingrese Password"/>
+                            <TextField name="Password" value={usuario.Password} onChange={ingresarValoresMemoria} type="password" variant="outlined" fullWidth label="Ingrese Password"/>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <TextField name="ConfirmarPassword" type="password" variant="outlined" fullWidth label="Confirme Password"/>
+                            <TextField name="ConfirmarPassword" value={usuario.ConfirmarPassword} onChange={ingresarValoresMemoria} type="password" variant="outlined" fullWidth label="Confirme Password"/>
                         </Grid>
 
                     </Grid>
                     <Grid container justify="center">
                         <Grid item xs={12} md={6}>
-                            <Button type="submit" fullWidth variant="contained" color="primary" size="large" style={style.submit}>
+                            <Button type="submit" onClick={registrarUsuario} fullWidth variant="contained" color="primary" size="large" style={style.submit}>
                                 Enviar
                             </Button>
                         </Grid>
