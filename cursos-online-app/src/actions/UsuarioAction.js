@@ -10,3 +10,14 @@ export const registrarUsuario = usuario => {
         })
     })
 }
+
+
+//para obtener los datos del usuario
+//no recibe parametros, el token ya esta agregado en la peticion
+export const obtenerUsuarioActual = () =>{
+    return new Promise( (resolve, eject) => {
+        HttpCliente.get('/Usuario').then(response => {
+            resolve(response);
+        })
+    })
+}
