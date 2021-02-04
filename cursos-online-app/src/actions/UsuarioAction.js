@@ -16,7 +16,16 @@ export const registrarUsuario = usuario => {
 //no recibe parametros, el token ya esta agregado en la peticion
 export const obtenerUsuarioActual = () =>{
     return new Promise( (resolve, eject) => {
-        HttpCliente.get('/Usuario').then(response => {
+        HttpCliente.get('/usuario').then(response => {
+            resolve(response);
+        })
+    })
+}
+
+//actualizar usuario
+export const actualizarUsuario = (usuario) => {
+    return new Promise( (resolve, eject) => {
+        HttpCliente.put('/usuario', usuario).then(response => {
             resolve(response);
         })
     })

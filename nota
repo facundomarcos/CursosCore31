@@ -1,5 +1,11 @@
-video 161
+video 165
 
+actualiza pero tira este error - video 165
+index.js:1 Warning: A component is changing a controlled input to be uncontrolled. This is likely caused by the value changing from a defined to undefined, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info:  https://reactjs.org/link/controlled-components
+ Solucionado agregando esto a las lineas  aunque no se explica bien el motivo 
+ <TextField 
+    value={usuario.nombre || ""}
+    />
 
 
 comando para ejecutar las migraciones
