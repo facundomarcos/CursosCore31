@@ -30,3 +30,12 @@ export const actualizarUsuario = (usuario) => {
         })
     })
 }
+
+//action login
+export const loginUsuario = usuario => {
+    return new Promise( (resolve, eject) => {
+        HttpCliente.post('/usuario/login', usuario).then(response => {
+            resolve(response);
+        })
+    })
+}

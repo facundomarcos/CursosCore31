@@ -1,9 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from '../Tool/Style';
 import { Avatar, Button, Container, Typography, TextField } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import { loginUsuario } from '../../actions/UsuarioAction';
 
 const Login = () => {
+
+    //variable de estado
+    const [usuario, setUsuario] = useState({
+        Email : '',
+        Password : ''
+    })
+
+    const ingresarValoresMemoria = e => {
+        const {name, value} = e.target;
+        setUsuario(anterior => ({
+            ...anterior,
+            [name]: value
+        }))
+    }
+
+
+   const loginUsuarioBoton = e => {
+       e.preventDefault();
+       loginUsuario(usuario).then(response => {
+           console.log('login exitoso', response);
+           window.localStorage.setItem('token_seguridad', response.data.token);
+       })
+   }
+
     return (
         
         <Container maxWidth = "xs">
@@ -15,9 +40,9 @@ const Login = () => {
                     Login de Usuario
                 </Typography>
                 <form style={style.form}>
-                    <TextField variant="outlined" label="Ingrese Username" name="username" fullWidth margin="normal" />
-                    <TextField variant="outlined" type="password" label="Password" name="password" fullWidth margin="normal" />
-                    <Button type="submit" fullWidth variant="contained" color="primary" style={style.submit}>
+                    <TextField name="Email" value={usuario.Email} onChange={ingresarValoresMemoria} variant="outlined" label="Ingrese Username"  fullWidth margin="normal" />
+                    <TextField name="Password" value={usuario.Password} onChange={ingresarValoresMemoria} variant="outlined" type="password" label="Password" fullWidth margin="normal" />
+                    <Button  type="submit" onClick={loginUsuarioBoton} fullWidth variant="contained" color="primary" style={style.submit}>
                         Enviar
                     </Button>
                 </form>
