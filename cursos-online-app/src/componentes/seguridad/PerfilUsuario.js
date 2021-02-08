@@ -2,9 +2,10 @@ import React, {useState, useEffect} from 'react';
 import { Container,Typography, Grid, TextField, Button } from '@material-ui/core';
 import style from '../Tool/Style';
 import { actualizarUsuario, obtenerUsuarioActual } from '../../actions/UsuarioAction';
-
+import { useStateValue } from '../../contexto/store';
 
 const PerfilUsuario = () => {
+    const [{sesionUsuario }, dispatch] = useStateValue();
     //variable de estado para manejar el token
     const [usuario, setUsuario] = useState({
             nombreCompleto : '',
@@ -41,7 +42,28 @@ const PerfilUsuario = () => {
         //evita que refresque toda la pagina, solo refresca lo que se modifica
         e.preventDefault();
         actualizarUsuario(usuario).then(response => {
-            window.localStorage.setItem("token_seguridad", response.data.token);
+
+                if(response.status === 200){
+                    dispatch({
+                        type : "OPEN_SNACKBAR",
+                        openMensaje : {
+                            open : true,
+                            mensaje : "Se guardaron exitosamente los cambios en Perfil Usuario"
+                        }
+                    })
+                    window.localStorage.setItem("token_seguridad", response.data.token);
+                }else{
+                    dispatch({
+                        type : "OPEN_SNACKBAR",
+                        openMensaje : {
+                            open : true,
+                            mensaje : "Errores al intentar guardar en: " + Object.keys(response.data.errors) 
+                        }
+                    })
+                }
+
+            //console.log('se actualizó el usuario', response);
+           // 
         })
     }
 

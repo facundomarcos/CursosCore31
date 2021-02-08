@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 //entrega las librerias de material design 
 import {ThemeProvider as MuithemeProvider}  from "@material-ui/core/styles";
-import {Grid}  from "@material-ui/core";
+import {Grid, Snackbar}  from "@material-ui/core";
 //importar el tema con los parametros que definimos del theme
 import theme from "./theme/theme";
 import RegistrarUsuario from './componentes/seguridad/RegistrarUsuario';
@@ -15,8 +15,10 @@ import { obtenerUsuarioActual } from './actions/UsuarioAction';
 
 function App() {
   //obtener sesion de usuario
-  //dispach es una representacion del contexto
-  const [{sesionUsuario}, dispach] = useStateValue();
+  //dispatch es una representacion del contexto
+   //referencia a la clase global snackbar
+  const [{sesionUsuario, openSnackbar}, dispatch] = useStateValue();
+
   //variable local
   //para saber si el request fue o no hecho al servidor
   const [iniciaApp, setInicialApp] = useState(false);
@@ -24,7 +26,7 @@ function App() {
   useEffect(() => {
     if(!iniciaApp){
       //que vaya al servidor y traiga el usuario actual
-      obtenerUsuarioActual(dispach).then(response => {
+      obtenerUsuarioActual(dispatch).then(response => {
         setInicialApp(true);
       }).catch(error => {
         setInicialApp(true);
@@ -33,24 +35,49 @@ function App() {
   }, [iniciaApp])
 
 return (
-  <Router>
-    <MuithemeProvider theme={theme}>
-      <AppNavbar />
-      <Grid container>
-        <Switch>
-          <Route exact path="/auth/login" component={Login} />
-          <Route exact path="/auth/registrar" component={RegistrarUsuario} />
-          <Route exact path="/auth/perfil" component={PerfilUsuario} />
-          <Route exact path="/" component={PerfilUsuario} />
-        </Switch>
 
-      </Grid>
-     
+  <React.Fragment>
+    <Snackbar 
+      anchorOrigin={{ vertical:"bottom", horizontal:"center" }}
+      open={openSnackbar ? openSnackbar.open : false}
+      autoHideDuration={3000}
+      ContentProps={{"aria-describedby": "message-id"}}
+      message = {
+        <span id="message-id">{openSnackbar ? openSnackbar.mensaje : "" }</span>
+      }
+      onClose= { () => 
+        dispatch({
+          type : "OPEN_SNACKBAR",
+          openMensaje : {
+            open : false,
+            mensaje : ""
+          }
+        })
+      }
+    >
+
+    </Snackbar>
+      <Router>
+        <MuithemeProvider theme={theme}>
+          <AppNavbar />
+            <Grid container>
+              <Switch>
+                <Route exact path="/auth/login" component={Login} />
+                <Route exact path="/auth/registrar" component={RegistrarUsuario} />
+                <Route exact path="/auth/perfil" component={PerfilUsuario} />
+                <Route exact path="/" component={PerfilUsuario} />
+              </Switch>
+
+            </Grid>
+        
 
 
 
-    </MuithemeProvider>
-  </Router>
+        </MuithemeProvider>
+      </Router>
+  </React.Fragment>
+
+
 
   
 )

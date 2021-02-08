@@ -14,28 +14,33 @@ export const registrarUsuario = usuario => {
 
 //para obtener los datos del usuario
 //no recibe parametros, el token ya esta agregado en la peticion
-//dispach -> axios se conecta al servidor
-export const obtenerUsuarioActual = (dispach) =>{
+//dispatch -> axios se conecta al servidor
+export const obtenerUsuarioActual = (dispatch) => {
     return new Promise( (resolve, eject) => {
         HttpCliente.get('/usuario').then(response => {
-            dispach({
+            dispatch({
                 type: "INICIAR_SESION",
                 sesion : response.data,
                 autenticado : true
             });
             resolve(response);
         })
-    })
-}
+        
+    });
+};
 
 //actualizar usuario
 export const actualizarUsuario = (usuario) => {
     return new Promise( (resolve, eject) => {
-        HttpCliente.put('/usuario', usuario).then(response => {
+        HttpCliente.put('/usuario', usuario)
+        .then(response => {
             resolve(response);
         })
-    })
-}
+        .catch(error => {
+            resolve(error.response);
+        })
+    });
+};
 
 //action login
 export const loginUsuario = usuario => {
