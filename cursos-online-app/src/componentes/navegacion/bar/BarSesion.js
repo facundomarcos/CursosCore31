@@ -1,6 +1,7 @@
 import React from 'react';
 import {IconButton, Toolbar, Typography, makeStyles, Button, Avatar} from '@material-ui/core';
-import FotoUsuarioTemp from "../../../logo.svg"
+import FotoUsuarioTemp from "../../../logo.svg";
+import {useStateValue} from '../../../contexto/store';
 
 //invoca las librerias responsive de material design
 const useStyles = makeStyles((theme) => ({
@@ -35,6 +36,8 @@ const useStyles = makeStyles((theme) => ({
 
 const BarSesion = () => {
     const classes = useStyles();
+    //traemos la sesion del usuario desde el index.js de los reducers
+    const [{sesionUsuario}, dispatch] = useStateValue();
 
     return (
         <Toolbar>
@@ -50,7 +53,7 @@ const BarSesion = () => {
                     Salir
                 </Button>
                 <Button color="inherit">
-                    {"Nombre de Usuario"}
+                    {sesionUsuario ? sesionUsuario.usuario.nombreCompleto : ""}
                 </Button>
                 <Avatar src={FotoUsuarioTemp}>
 

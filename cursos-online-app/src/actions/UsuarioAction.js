@@ -14,9 +14,15 @@ export const registrarUsuario = usuario => {
 
 //para obtener los datos del usuario
 //no recibe parametros, el token ya esta agregado en la peticion
-export const obtenerUsuarioActual = () =>{
+//dispach -> axios se conecta al servidor
+export const obtenerUsuarioActual = (dispach) =>{
     return new Promise( (resolve, eject) => {
         HttpCliente.get('/usuario').then(response => {
+            dispach({
+                type: "INICIAR_SESION",
+                sesion : response.data,
+                autenticado : true
+            });
             resolve(response);
         })
     })
