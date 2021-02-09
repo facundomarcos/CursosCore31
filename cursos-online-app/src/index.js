@@ -8,13 +8,13 @@ import {StateProvider} from './contexto/store';
 import {mainReducer} from './contexto/reducers';
 
 
-
-
 //DOM virtual que se envia al elemento root
 ReactDOM.render(
   <React.StrictMode>
     <StateProvider initialState={initialState} reducer={mainReducer}>
+
       <App />
+
     </StateProvider>
   
   </React.StrictMode>,

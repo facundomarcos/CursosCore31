@@ -17,7 +17,7 @@ export const registrarUsuario = usuario => {
 //dispatch -> axios se conecta al servidor
 export const obtenerUsuarioActual = (dispatch) => {
     return new Promise( (resolve, eject) => {
-        HttpCliente.get('/usuario').then(response => {
+        HttpCliente.get("/usuario").then(response => {
             dispatch({
                 type: "INICIAR_SESION",
                 sesion : response.data,
