@@ -3,6 +3,9 @@ import {IconButton, Toolbar, Typography, makeStyles, Button, Avatar, Drawer, Lis
 import FotoUsuarioTemp from "../../../logo.svg";
 import {useStateValue} from '../../../contexto/store';
 import { MenuIzquierda } from './menuIzquierda';
+import { MenuDerecha } from './menuDerecha';
+//para que las propiedades de navegacion puedan trabajarse
+import { withRouter } from 'react-router-dom';
 
 //invoca las librerias responsive de material design
 const useStyles = makeStyles((theme) => ({
@@ -44,18 +47,36 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-const BarSesion = () => {
+const BarSesion = (props) => {
     const classes = useStyles();
     //traemos la sesion del usuario desde el index.js de los reducers
     const [{sesionUsuario}, dispatch] = useStateValue();
-    //variable para abrir el drawer
+    //variable para abrir el drawer izquierdo
     const [abrirMenuIzquierda, setAbrirMenuIzquierda] = useState(false);
+    //variable para abrir el drawer derecho
+    const [abrirMenuDerecha, setAbrirMenuDerecha] = useState(false);
+
     const cerrarMenuIzquierda = () => {
         setAbrirMenuIzquierda(false);
     }
 
     const abrirMenuIzquierdaAction = () => {
         setAbrirMenuIzquierda(true);
+    }
+
+    const cerrarMenuDerecha = () => {
+        setAbrirMenuDerecha(false);
+    }
+
+    //eliminar el token para salir de sesion y redirigir a login
+    //props son las propiedades del BarSesion
+    const salirSesionApp = () => {
+        localStorage.removeItem('token_seguridad');
+        props.history.push('/auth/login');
+    }
+
+    const abrirMenuDerechaAction = () => {
+        setAbrirMenuDerecha(true);
     }
 
     return (
@@ -68,9 +89,23 @@ const BarSesion = () => {
                  <div className = {classes.list} onKeyDown={cerrarMenuIzquierda} onClick={cerrarMenuIzquierda}>
                     <MenuIzquierda classes={classes}/>
                  </div>
-                     
+            </Drawer>
+
+            <Drawer
+            open = { abrirMenuDerecha }
+            onClose = {cerrarMenuDerecha}
+            anchor = "right"
+            >
+                <div role="button" onKeyDown={cerrarMenuDerecha} onClick={cerrarMenuDerecha}>
+                    <MenuDerecha 
+                        classes={classes} 
+                        salirSesion={salirSesionApp}
+                        usuario = { sesionUsuario ? sesionUsuario.usuario : null}
+                    />
+                 </div>
 
             </Drawer>
+
 
             <Toolbar>
                 <IconButton color="inherit" onClick={abrirMenuIzquierdaAction}>
@@ -92,8 +127,8 @@ const BarSesion = () => {
                     </Avatar>
                 </div>
 
-                <div className={classes.seccionMobile}>
-                    <IconButton color="inherit">
+                <div className={classes.seccionMobile} >
+                    <IconButton color="inherit" onClick={abrirMenuDerechaAction}>
                         <i className="material-icons">more_vert</i>
                     </IconButton>
 
@@ -106,4 +141,4 @@ const BarSesion = () => {
     );
 };
 
-export default BarSesion;
+export default withRouter(BarSesion);
