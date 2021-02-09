@@ -1,5 +1,5 @@
-import React from 'react';
-import {IconButton, Toolbar, Typography, makeStyles, Button, Avatar} from '@material-ui/core';
+import React, { useState } from 'react';
+import {IconButton, Toolbar, Typography, makeStyles, Button, Avatar, Drawer, List, ListItem, ListItemText} from '@material-ui/core';
 import FotoUsuarioTemp from "../../../logo.svg";
 import {useStateValue} from '../../../contexto/store';
 
@@ -31,6 +31,15 @@ const useStyles = makeStyles((theme) => ({
     avatarSize : {
         width : 40,
         height : 40
+    },
+    list : {
+        width : 250
+    },
+    listItemText : {
+        fontSize : "14px",
+        fontWeight : 600,
+        paddingLeft: "15px",
+        color : "#212121"
     }
 }))
 
@@ -38,36 +47,66 @@ const BarSesion = () => {
     const classes = useStyles();
     //traemos la sesion del usuario desde el index.js de los reducers
     const [{sesionUsuario}, dispatch] = useStateValue();
+    //variable para abrir el drawer
+    const [abrirMenuIzquierda, setAbrirMenuIzquierda] = useState(false);
+    const cerrarMenuIzquierda = () => {
+        setAbrirMenuIzquierda(false);
+    }
+
+    const abrirMenuIzquierdaAction = () => {
+        setAbrirMenuIzquierda(true);
+    }
 
     return (
-        <Toolbar>
-            <IconButton color="inherit">
-                <i className="material-icons">menu</i>
-            </IconButton>
+        <React.Fragment>
+             <Drawer 
+                open = {abrirMenuIzquierda}
+                onClose = {cerrarMenuIzquierda}
+                anchor = "left"
+             >
+                 <div className = {classes.list} onKeyDown={cerrarMenuIzquierda} onClick={cerrarMenuIzquierda}>
+                    <List>
+                        <ListItem button>
+                            <i className="material-icons">account_box</i>
+                            <ListItemText  classes={{primary : classes.listItemText}} primary="Perfil" />
+                        </ListItem>
+                    </List>
+                 </div>
+                     
 
-            <Typography variant="h6">Cursos Online</Typography>
-            <div className={classes.grow}></div>
+            </Drawer>
 
-            <div className={classes.seccionDesktop}>
-                <Button color="inherit">
-                    Salir
-                </Button>
-                <Button color="inherit">
-                    {sesionUsuario ? sesionUsuario.usuario.nombreCompleto : ""}
-                </Button>
-                <Avatar src={FotoUsuarioTemp}>
-
-                </Avatar>
-            </div>
-
-            <div className={classes.seccionMobile}>
-                <IconButton color="inherit">
-                    <i className="material-icons">more_vert</i>
+            <Toolbar>
+                <IconButton color="inherit" onClick={abrirMenuIzquierdaAction}>
+                    <i className="material-icons">menu</i>
                 </IconButton>
 
-            </div>
-            
-        </Toolbar>
+                <Typography variant="h6">Cursos Online</Typography>
+                <div className={classes.grow}></div>
+
+                <div className={classes.seccionDesktop}>
+                    <Button color="inherit">
+                        Salir
+                    </Button>
+                    <Button color="inherit">
+                        {sesionUsuario ? sesionUsuario.usuario.nombreCompleto : ""}
+                    </Button>
+                    <Avatar src={FotoUsuarioTemp}>
+
+                    </Avatar>
+                </div>
+
+                <div className={classes.seccionMobile}>
+                    <IconButton color="inherit">
+                        <i className="material-icons">more_vert</i>
+                    </IconButton>
+
+                </div>
+                
+            </Toolbar>
+        </React.Fragment>
+
+       
     );
 };
 
