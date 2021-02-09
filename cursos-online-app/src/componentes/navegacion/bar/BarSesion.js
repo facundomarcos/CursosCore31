@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {IconButton, Toolbar, Typography, makeStyles, Button, Avatar, Drawer, List, ListItem, ListItemText} from '@material-ui/core';
 import FotoUsuarioTemp from "../../../logo.svg";
 import {useStateValue} from '../../../contexto/store';
+import { MenuIzquierda } from './menuIzquierda';
 
 //invoca las librerias responsive de material design
 const useStyles = makeStyles((theme) => ({
@@ -65,12 +66,7 @@ const BarSesion = () => {
                 anchor = "left"
              >
                  <div className = {classes.list} onKeyDown={cerrarMenuIzquierda} onClick={cerrarMenuIzquierda}>
-                    <List>
-                        <ListItem button>
-                            <i className="material-icons">account_box</i>
-                            <ListItemText  classes={{primary : classes.listItemText}} primary="Perfil" />
-                        </ListItem>
-                    </List>
+                    <MenuIzquierda classes={classes}/>
                  </div>
                      
 
