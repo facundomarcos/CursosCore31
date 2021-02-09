@@ -16,7 +16,10 @@ index.js:1 Warning: A component is changing a controlled input to be uncontrolle
 
 
 comando para ejecutar las migraciones
-dotnet ef migrations add IdentityCoreInicial -p Persistencia/ -s WebAPI/
+dotnet ef migrations add "IdentityCoreInicial" -p Persistencia/ -s WebAPI/
+comando para correr la migracion
+dotnet watch run
+
 
 para instalar react
 npx create-react-app cursos-online-app
