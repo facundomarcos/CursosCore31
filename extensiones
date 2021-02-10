@@ -11,6 +11,13 @@ Auto Close Tag
 Para React
 Axios
     npm install axios
+    https://www.npmjs.com/package/axios
+React images upload
+    npm i react-images-upload
+    https://www.npmjs.com/package/react-images-upload
+Uuid
+    npm install uuid
+    https://www.npmjs.com/package/uuid
 
 Material 
     npm install @material-ui/core
